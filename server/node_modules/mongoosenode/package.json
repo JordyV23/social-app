@@ -1,0 +1,21 @@
+{
+  "name": "mongoosenode",
+  "version": "1.0.1",
+  "description": "Mongo DB + Mongoose Document Maker Lib",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "mongonode",
+    "mongoservernode",
+    "mongodb",
+    "mongoose",
+    "webpack"
+  ],
+  "author": "Arun Panneerselvam",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^5.7.13"
+  }
+}
