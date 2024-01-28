@@ -10,6 +10,7 @@ import { fileURLToPath } from "url";
 import helmet from "helmet";
 import { register } from "./controllers/index.js";
 import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/user.js";
 
 // Configurations
 const __filename = fileURLToPath(import.meta.url);
@@ -43,6 +44,7 @@ app.post("/auth/register", upload.single("picture"), register);
 
 // Rutas
 app.use("/auth", authRoutes);
+app.use("/users", userRoutes);
 
 // Conexion a Mongo
 const PORT = process.env.PORT || 6001;
