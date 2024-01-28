@@ -12,6 +12,9 @@ import { register, createPost } from "./controllers/index.js";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/user.js";
 import { verifyToken } from "./middleware/auth.js";
+import User from "./models/user.js";
+import Post from "./models/post.js";
+import { users, posts } from "./data/index.js";
 
 // Configurations
 const __filename = fileURLToPath(import.meta.url);
@@ -56,5 +59,9 @@ mongoose
     app.listen(PORT, () =>
       console.log(`El servidor esta corriendo en http://localhost:${PORT}`)
     );
+
+    // Insertar datos de prueba
+    // User.insertMany(users);
+    // Post.insertMany(posts);
   })
   .catch((error) => console.log(` ${error} `));
