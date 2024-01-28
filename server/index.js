@@ -8,6 +8,8 @@ import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
 import helmet from "helmet";
+import { register } from "./controllers/index.js";
+import authRoutes from "./routes/auth.js";
 
 // Configurations
 const __filename = fileURLToPath(import.meta.url);
@@ -34,8 +36,13 @@ const storage = multer.diskStorage({
     cb(null, file.originalname);
   },
 });
-
 const upload = multer({ storage });
+
+// Rutas con archivos
+app.post("/auth/register", upload.single("picture"), register);
+
+// Rutas
+app.use("/auth", authRoutes);
 
 // Conexion a Mongo
 const PORT = process.env.PORT || 6001;
