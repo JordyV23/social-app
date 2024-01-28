@@ -8,9 +8,10 @@ import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
 import helmet from "helmet";
-import { register } from "./controllers/index.js";
+import { register, createPost } from "./controllers/index.js";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/user.js";
+import { verifyToken } from "./middleware/auth.js";
 
 // Configurations
 const __filename = fileURLToPath(import.meta.url);
@@ -41,6 +42,7 @@ const upload = multer({ storage });
 
 // Rutas con archivos
 app.post("/auth/register", upload.single("picture"), register);
+app.post("/posts", verifyToken, upload.single("picture"), createPost);
 
 // Rutas
 app.use("/auth", authRoutes);
