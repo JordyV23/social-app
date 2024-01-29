@@ -12,9 +12,11 @@ import { register, createPost } from "./controllers/index.js";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/user.js";
 import { verifyToken } from "./middleware/auth.js";
-import User from "./models/user.js";
-import Post from "./models/post.js";
-import { users, posts } from "./data/index.js";
+
+// Importar datos y modelos para prueba
+// import User from "./models/user.js";
+// import Post from "./models/post.js";
+// import { users, posts } from "./data/index.js";
 
 // Configurations
 const __filename = fileURLToPath(import.meta.url);
