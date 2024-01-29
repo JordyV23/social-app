@@ -1,10 +1,12 @@
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { AppRouter } from "./Router/AppRouter";
+
 function App() {
-  
   return (
     <>
-      <h1>Hello, world!</h1>
+      <AppRouter />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
