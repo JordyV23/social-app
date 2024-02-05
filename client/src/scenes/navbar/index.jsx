@@ -24,12 +24,11 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { setMode, setLogout } from "../../state/index";
 import { useNavigate } from "react-router-dom";
-import { FlexBetween } from "../../components";
+import { FlexBetween, AppLogo } from "../../components";
 
 export const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   //Permite definir si el tamaño de la pantalla es menor que el min-wi`dth de la pantalla
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
@@ -47,20 +46,7 @@ export const Navbar = () => {
     <>
       <FlexBetween padding="1rem 6%" backgroundColor={alt}>
         <FlexBetween gap="1.75rem">
-          <Typography
-            fontWeight="bold"
-            fontSize="clamp(1rem,2rem,2.5rem)"
-            color="primary"
-            onClick={() => navigate("/home")}
-            sx={{
-              "&:hover": {
-                color: primaryLight,
-                cursor: "pointer",
-              },
-            }}
-          >
-            The Social App
-          </Typography>
+          <AppLogo />
           {isNonMobileScreens && (
             <FlexBetween
               backgroundColor={light}
